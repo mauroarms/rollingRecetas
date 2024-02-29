@@ -6,30 +6,8 @@
       "imagen": "https://www.serargentino.com/public/images/2020/05/pollo-al-champi%C3%B1%C3%B3n-773x458.jpeg",
       "descripcionBreve": "Jugosos trozos de pollo salteados con champiñones frescos en una deliciosa salsa cremosa.",
       "descripcionLarga": "Jugosos trozos de pollo salteados con champiñones frescos en una deliciosa salsa cremosa.",
-      "listaIngredientes": [
-        "500g de pechugas de pollo, cortadas en trozos",
-        "250g de champiñones, en rodajas",
-        "1 cebolla grande, picada",
-        "2 dientes de ajo, picados",
-        "200ml de crema de leche",
-        "1/2 taza de caldo de pollo",
-        "2 cucharadas de mantequilla",
-        "2 cucharadas de aceite de oliva",
-        "1 cucharadita de tomillo seco",
-        "Sal y pimienta al gusto",
-        "Perejil fresco picado para decorar"
-      ],
-      "descripcionPasos": [
-        "En una sartén grande, calienta el aceite de oliva y la mantequilla a fuego medio-alto.",
-        "Agrega los trozos de pollo a la sartén y sazona con sal, pimienta y tomillo seco. Cocina hasta que estén dorados por todos lados, aproximadamente 5-7 minutos. Retira el pollo de la sartén y reserva.",
-        "En la misma sartén, agrega la cebolla y el ajo picados. Cocina hasta que estén tiernos y fragantes, aproximadamente 3 minutos.",
-        "Agrega los champiñones a la sartén y cocina hasta que estén dorados y tiernos, aproximadamente 5 minutos más.",
-        "Regresa el pollo a la sartén y mezcla todo bien.",
-        "Vierte el caldo de pollo y deja que hierva.",
-        "Reduce el fuego a medio-bajo y agrega la crema de leche. Cocina a fuego lento durante unos 5-7 minutos, o hasta que la salsa se espese ligeramente.",
-        "Rectifica la sazón con sal y pimienta, según sea necesario.",
-        "Sirve caliente, espolvoreado con perejil fresco picado como decoración. Disfruta tu Pollo al Champiñón acompañado de arroz, pasta o pan."
-      ],
+      "listaIngredientes": "",
+      "descripcionPasos": "",
       "categoria": "Restaurant"
     }
   ],

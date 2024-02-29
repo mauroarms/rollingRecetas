@@ -9,28 +9,34 @@ const TablaAdministrador = () => {
       <thead>
         <tr>
           <th>Cod</th>
-          <th>Producto</th>
-          <th>Precio</th>
+          <th>Titulo</th>
+          <th>Descripcion Breve</th>
+          <th>Descripcion Amplia</th>
           <th>URL de Imagen</th>
           <th>Categoria</th>
+          <th>Ingredientes</th>
+          <th>Pasos</th>
           <th>Opciones</th>
         </tr>
       </thead>
       <tbody>
         <tr>
           <td>1</td>
-          <td>Cappuchino</td>
-          <td>$1200</td>
+          <td>Pollo al Champiñon</td>
+          <td>Jugosos trozos de pollo salteados con champiñones frescos en una deliciosa salsa cremosa.</td>
+          <td>Jugosos trozos de pollo salteados con champiñones frescos en una deliciosa salsa cremosa.</td>
           <td className="d-flex">
             <img
-              src="https://tapcom-live.ams3.cdn.digitaloceanspaces.com/media/cheat-menu-saudi/products/cappuchino-Cappuccino_-_12Oz.jpg"
+              src="https://www.serargentino.com/public/images/2020/05/pollo-al-champi%C3%B1%C3%B3n-773x458.jpeg"
               alt=""
               width={230}
               height={150}
               className="m-auto"
             />
           </td>
-          <td>Bebida Caliente</td>
+          <td>Restaurant</td>
+          <td>Restaurant</td>
+          <td>Restaurant</td>
           <td>
             <div className="d-flex flex-column mt-3 align-items-center">
               <Button variant="warning">
@@ -43,19 +49,22 @@ const TablaAdministrador = () => {
           </td>
         </tr>
         <tr>
-          <td>2</td>
-          <td>Café Americano</td>
-          <td>$1000</td>
+          <td>1</td>
+          <td>Pollo al Champiñon</td>
+          <td>Jugosos trozos de pollo salteados con champiñones frescos en una deliciosa salsa cremosa.</td>
+          <td>Jugosos trozos de pollo salteados con champiñones frescos en una deliciosa salsa cremosa.</td>
           <td className="d-flex">
             <img
-              src="https://www.elglobo.com.mx/cdn/shop/products/americano-3_800x.jpg?v=1618806696"
+              src="https://www.serargentino.com/public/images/2020/05/pollo-al-champi%C3%B1%C3%B3n-773x458.jpeg"
               alt=""
               width={230}
               height={150}
               className="m-auto"
             />
           </td>
-          <td>Bebida Caliente</td>
+          <td>Restaurant</td>
+          <td>Restaurant</td>
+          <td>Restaurant</td>
           <td>
             <div className="d-flex flex-column mt-3 align-items-center">
               <Button variant="warning">
@@ -67,6 +76,7 @@ const TablaAdministrador = () => {
             </div>
           </td>
         </tr>
+
       </tbody>
     </Table>
   );

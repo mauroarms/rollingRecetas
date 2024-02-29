@@ -65,6 +65,17 @@
   right: 16px;
 }
 
+.contPasosIngredientes{
+  display: flex;
+  margin-top: 30px;
+  gap: 50px;
+}
+.contPasosIngredientes article:nth-child(1){
+  width: 400px;
+  margin-right: 50px;
+}
+
+
 @media screen and (max-width: 990px) {
   .image-section {
     max-height: 570px;
@@ -84,6 +95,13 @@
     bottom: 16px; 
     right: 50%;
     transform: translateX(50%);
+  }
+  .contPasosIngredientes{
+    flex-direction: column;
+  }
+  .contPasosIngredientes article:nth-child(1){
+    width: 100%;
+    margin-right: 0;
   }
 }
 

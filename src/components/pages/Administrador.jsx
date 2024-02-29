@@ -36,7 +36,7 @@ const Administrador = () => {
         aria-labelledby="contained-modal-title-vcenter"
       >
         <Modal.Header closeButton>
-          <Modal.Title>Agregar Producto</Modal.Title>
+          <Modal.Title>Agregar Receta</Modal.Title>
         </Modal.Header>
         <Modal.Body>
           <FormularioProducto></FormularioProducto>

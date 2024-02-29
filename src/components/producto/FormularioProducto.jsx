@@ -14,11 +14,13 @@ const FormularioProducto = () => {
 
   return (
     <Form onSubmit={handleSubmit(onSubmit)}>
+
+{/* titulo */}
       <Form.Group className="mb-3" controlId="formNombre">
         <Form.Label>Nombre:</Form.Label>
         <Form.Control
           type="text"
-          placeholder="Nombre del producto"
+          placeholder="Nombre de la receta"
           {...register("nombre", {
             required: "Ingrese un nombre",
             minLength: {
@@ -34,6 +36,7 @@ const FormularioProducto = () => {
         <Form.Text className="text-danger">{errors.nombre?.message}</Form.Text>
       </Form.Group>
 
+{/* img */}
       <Form.Group className="mb-3" controlId="formImagen">
         <Form.Label>URL de la imagen:</Form.Label>
         <Form.Control
@@ -50,12 +53,13 @@ const FormularioProducto = () => {
         <Form.Text className="text-danger">{errors.imagen?.message}</Form.Text>
       </Form.Group>
 
+{/* desc brev */}
       <Form.Group className="mb-3" controlId="formDescBreve">
         <Form.Label>Descripción breve:</Form.Label>
         <Form.Control
           as="textarea"
           rows={1}
-          placeholder="Descripción breve de su producto"
+          placeholder="Descripción breve de la receta"
           {...register("descripcionBreve", {
             required: "Ingrese una descripción",
             minLength: {
@@ -73,12 +77,13 @@ const FormularioProducto = () => {
         </Form.Text>
       </Form.Group>
 
+{/* desc amp */}
       <Form.Group className="mb-3" controlId="formDescAmplia">
         <Form.Label>Descripción amplia:</Form.Label>
         <Form.Control
           as="textarea"
-          rows={3}
-          placeholder="Descripción amplia de su producto"
+          rows={2}
+          placeholder="Descripción amplia de la receta"
           {...register("descripcionAmplia", {
             required: "Ingrese una descripción",
             min: {
@@ -104,36 +109,62 @@ const FormularioProducto = () => {
           })}
         >
           <option value="">Seleccione una Opción</option>
-          <option value="infusion">Infusion</option>
-          <option value="salado">Salado</option>
-          <option value="panificacion">Panificacion</option>
-          <option value="bebidaFria">Bebida Fría</option>
+          <option value="parrilla">Parrilla</option>
+          <option value="vegano">Vegano</option>
+          <option value="restaurant">Restautant</option>
+          <option value="rapido">Rapido</option>
+          <option value="batidos">Batidos</option>
         </Form.Select>
       </Form.Group>
 
-      <Form.Group className="mb-3" controlId="formPrecio">
-        <Form.Label>Precio:</Form.Label>
+{/* ingredientes */}
+      <Form.Group className="mb-3" controlId="formIngredientes">
+        <Form.Label>Ingredientes:</Form.Label>
         <Form.Control
-          type="number"
-          {...register("precio", {
-            required: "Ingrese un precio",
-            min: {
-              value: 100,
-              message: "Ingrese cómo mínimo $100",
+          as="textarea"
+          rows={3}
+          placeholder="Ingredientes línea por línea"
+          {...register("ingredientes", {
+            required: "Ingrese los ingredientes de la receta",
+            minLength: {
+              value: 10,
+              message: "Ingrese una descripcion de pasos con mínimo 10 caracteres",
             },
-            max: {
-              value: 1000000,
-              message: "Ingrese cómo máximo $1000000",
+            maxLenght: {
+              value: 800,
+              message: "Ingrese una descripcion de pasos con máximo 700 caracteres",
             },
           })}
         />
-        <Form.Text className="text-danger">{errors.precio?.message}</Form.Text>
+        <Form.Text className="text-danger">
+          {errors.ingredientes?.message}
+        </Form.Text>
       </Form.Group>
 
-      <Form.Group className="mb-3" controlId="formDisponible">
-        <Form.Label>Disponible:</Form.Label>
-        <Form.Check type="switch" id="checkStock" {...register("disponible")}/>
+{/* pasos */}
+      <Form.Group className="mb-3" controlId="formPasos">
+        <Form.Label>Pasos:</Form.Label>
+        <Form.Control
+          as="textarea"
+          rows={3}
+          placeholder="Pasos línea por línea"
+          {...register("pasos", {
+            required: "Ingrese los pasos de la receta",
+            minLength: {
+              value: 10,
+              message: "Ingrese una descripcion de pasos con mínimo 30 caracteres",
+            },
+            maxLenght: {
+              value: 800,
+              message: "Ingrese una descripcion de pasos con máximo 700 caracteres",
+            },
+          })}
+        />
+        <Form.Text className="text-danger">
+          {errors.pasos?.message}
+        </Form.Text>
       </Form.Group>
+
 
       
       <Button
