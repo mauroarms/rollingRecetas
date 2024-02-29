@@ -2,9 +2,9 @@ import { Container } from "react-bootstrap";
 import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
 import "../../css/cardProducto.css";
-import { Link, NavLink } from "react-router-dom";
+import { Link } from "react-router-dom";
 
-const CardProducto = ({ imagen, nombre, descripcion, categoria}) => {
+const CardReceta = ({ imagen, nombre, descripcion, categoria}) => {
   return (
     <Card className="cardProducto">
       <Card.Img className="imgCard" variant="top" src={imagen} />
@@ -37,4 +37,4 @@ const CardProducto = ({ imagen, nombre, descripcion, categoria}) => {
 
 //   margin: auto 0 10px auto;
 
-export default CardProducto;
+export default CardReceta;

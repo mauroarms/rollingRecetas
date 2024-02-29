@@ -3,7 +3,7 @@ import { useForm } from "react-hook-form";
 import { crearRecetaAPI } from "../../helpers/queries";
 import Swal from "sweetalert2";
 
-const FormularioProducto = () => {
+const FormularioRecetas = () => {
   const {
     register,
     handleSubmit,
@@ -131,11 +131,11 @@ const FormularioProducto = () => {
           })}
         >
           <option value="">Seleccione una Opción</option>
-          <option value="parrilla">Parrilla</option>
-          <option value="vegano">Vegano</option>
-          <option value="restaurant">Restautant</option>
-          <option value="rapido">Rapido</option>
-          <option value="batidos">Batidos</option>
+          <option value="Parrilla">Parrilla</option>
+          <option value="Vegano">Vegano</option>
+          <option value="Restaurant">Restautant</option>
+          <option value="Rapido">Rapido</option>
+          <option value="Batidos">Batidos</option>
         </Form.Select>
       </Form.Group>
 
@@ -200,4 +200,4 @@ const FormularioProducto = () => {
   );
 };
 
-export default FormularioProducto;
+export default FormularioRecetas;

@@ -1,12 +1,14 @@
 import { Container, Button, Modal } from "react-bootstrap";
 import TablaAdministrador from "../TablaAdministrador";
 import { useState } from "react";
-import FormularioProducto from "../producto/FormularioProducto";
+import FormularioProducto from "../receta/FormularioRecetas";
+
 
 const Administrador = () => {
   const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
+
 
   return (
     <>
@@ -41,7 +43,6 @@ const Administrador = () => {
         <Modal.Body>
           <FormularioProducto></FormularioProducto>
         </Modal.Body>
-
       </Modal>
     </>
   );

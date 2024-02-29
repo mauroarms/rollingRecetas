@@ -2,8 +2,31 @@ import { Button } from "react-bootstrap";
 import Table from "react-bootstrap/Table";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPenToSquare, faTrash } from "@fortawesome/free-solid-svg-icons";
+import { obtenerListaRecetasAPI } from "../helpers/queries";
+import { useEffect, useState } from "react";
 
 const TablaAdministrador = () => {
+  const [recetas, setRecetas] = useState([]);
+
+  useEffect(() => {
+    obtenerRecetas();
+  }, []);
+
+  const obtenerRecetas = async () => {
+    const respuesta = await obtenerListaRecetasAPI();
+    if (respuesta.status === 200) {
+      const recetas = await respuesta.json();
+      setRecetas(recetas);
+      console.log(recetas);
+    } else {
+      Swal.fire({
+        icon: "error",
+        title: "Error",
+        text: "Intentelo nuevamente más tarde",
+      });
+    }
+  };
+
   return (
     <Table striped bordered hover responsive>
       <thead>
@@ -20,63 +43,36 @@ const TablaAdministrador = () => {
         </tr>
       </thead>
       <tbody>
-        <tr>
-          <td>1</td>
-          <td>Pollo al Champiñon</td>
-          <td>Jugosos trozos de pollo salteados con champiñones frescos en una deliciosa salsa cremosa.</td>
-          <td>Jugosos trozos de pollo salteados con champiñones frescos en una deliciosa salsa cremosa.</td>
-          <td className="d-flex">
-            <img
-              src="https://www.serargentino.com/public/images/2020/05/pollo-al-champi%C3%B1%C3%B3n-773x458.jpeg"
-              alt=""
-              width={230}
-              height={150}
-              className="m-auto"
-            />
-          </td>
-          <td>Restaurant</td>
-          <td>Restaurant</td>
-          <td>Restaurant</td>
-          <td>
-            <div className="d-flex flex-column mt-3 align-items-center">
-              <Button variant="warning">
-                <FontAwesomeIcon icon={faPenToSquare} />
-              </Button>
-              <Button variant="danger" className="mt-5">
-                <FontAwesomeIcon icon={faTrash} />
-              </Button>
-            </div>
-          </td>
-        </tr>
-        <tr>
-          <td>1</td>
-          <td>Pollo al Champiñon</td>
-          <td>Jugosos trozos de pollo salteados con champiñones frescos en una deliciosa salsa cremosa.</td>
-          <td>Jugosos trozos de pollo salteados con champiñones frescos en una deliciosa salsa cremosa.</td>
-          <td className="d-flex">
-            <img
-              src="https://www.serargentino.com/public/images/2020/05/pollo-al-champi%C3%B1%C3%B3n-773x458.jpeg"
-              alt=""
-              width={230}
-              height={150}
-              className="m-auto"
-            />
-          </td>
-          <td>Restaurant</td>
-          <td>Restaurant</td>
-          <td>Restaurant</td>
-          <td>
-            <div className="d-flex flex-column mt-3 align-items-center">
-              <Button variant="warning">
-                <FontAwesomeIcon icon={faPenToSquare} />
-              </Button>
-              <Button variant="danger" className="mt-5">
-                <FontAwesomeIcon icon={faTrash} />
-              </Button>
-            </div>
-          </td>
-        </tr>
-
+        {recetas.map((receta) => (
+          <tr key={receta.id}>
+            <td>{receta.id}</td>
+            <td>{receta.nombre}</td>
+            <td>{receta.descripcionBreve}</td>
+            <td>{receta.descripcionAmplia}</td>
+            <td className="d-flex">
+              <img
+                src={receta.imagen}
+                alt="imgReceta"
+                width={230}
+                height={150}
+                className="m-auto"
+              />
+            </td>
+            <td>{receta.categoria}</td>
+            <td>{receta.ingredientes}</td>
+            <td>{receta.pasos}</td>
+            <td>
+              <div className="d-flex flex-column mt-3 align-items-center">
+                <Button variant="warning">
+                  <FontAwesomeIcon icon={faPenToSquare} />
+                </Button>
+                <Button variant="danger" className="mt-5">
+                  <FontAwesomeIcon icon={faTrash} />
+                </Button>
+              </div>
+            </td>
+          </tr>
+        ))}
       </tbody>
     </Table>
   );

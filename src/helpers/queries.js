@@ -19,3 +19,15 @@ export const crearRecetaAPI = async (receta) => {
     console.log(error);
   }
 };
+
+//GET
+
+export const obtenerListaRecetasAPI = async () => {
+    try {
+      const respuesta = await fetch(URI_Recetas);
+      console.log(respuesta);
+      return respuesta;
+    } catch (error) {
+      console.log(error);
+    }
+};
