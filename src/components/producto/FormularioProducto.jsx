@@ -1,21 +1,40 @@
 import { Button, Form } from "react-bootstrap";
 import { useForm } from "react-hook-form";
+import { crearRecetaAPI } from "../../helpers/queries";
+import Swal from "sweetalert2";
 
 const FormularioProducto = () => {
   const {
     register,
     handleSubmit,
     formState: { errors },
+    reset
   } = useForm();
 
-  const onSubmit = (respuesta) => {
+  const onSubmit = async (receta) => {
+    console.log(receta);
+
+    const respuesta = await crearRecetaAPI(receta);
     console.log(respuesta);
+    if (respuesta.status === 201) {
+      Swal.fire({
+        title: "Producto Agregado",
+        text: `Se agregó ${receta.nombre} exitosamente`,
+        icon: "success",
+      });
+      reset();
+    } else {
+      Swal.fire({
+        icon: "error",
+        title: "Error",
+        text: "La receta no fue agregada, intentelo nuevamente más tarde",
+      });
+    }
   };
 
   return (
     <Form onSubmit={handleSubmit(onSubmit)}>
-
-{/* titulo */}
+      {/* titulo */}
       <Form.Group className="mb-3" controlId="formNombre">
         <Form.Label>Nombre:</Form.Label>
         <Form.Control
@@ -36,7 +55,7 @@ const FormularioProducto = () => {
         <Form.Text className="text-danger">{errors.nombre?.message}</Form.Text>
       </Form.Group>
 
-{/* img */}
+      {/* img */}
       <Form.Group className="mb-3" controlId="formImagen">
         <Form.Label>URL de la imagen:</Form.Label>
         <Form.Control
@@ -53,7 +72,7 @@ const FormularioProducto = () => {
         <Form.Text className="text-danger">{errors.imagen?.message}</Form.Text>
       </Form.Group>
 
-{/* desc brev */}
+      {/* desc brev */}
       <Form.Group className="mb-3" controlId="formDescBreve">
         <Form.Label>Descripción breve:</Form.Label>
         <Form.Control
@@ -64,11 +83,13 @@ const FormularioProducto = () => {
             required: "Ingrese una descripción",
             minLength: {
               value: 5,
-              message: "Ingrese una descripcion amplia con mínimo 30 caracteres",
+              message:
+                "Ingrese una descripcion amplia con mínimo 30 caracteres",
             },
             maxLenght: {
               value: 700,
-              message: "Ingrese una descripcion amplia con máximo 700 caracteres",
+              message:
+                "Ingrese una descripcion amplia con máximo 700 caracteres",
             },
           })}
         />
@@ -77,7 +98,7 @@ const FormularioProducto = () => {
         </Form.Text>
       </Form.Group>
 
-{/* desc amp */}
+      {/* desc amp */}
       <Form.Group className="mb-3" controlId="formDescAmplia">
         <Form.Label>Descripción amplia:</Form.Label>
         <Form.Control
@@ -88,11 +109,12 @@ const FormularioProducto = () => {
             required: "Ingrese una descripción",
             min: {
               value: 5,
-              message: "Ingrese una descripcion breve con mínimo 10 caracteres"
+              message: "Ingrese una descripcion breve con mínimo 10 caracteres",
             },
             max: {
               value: 150,
-              message: "Ingrese una descripcion breve con mínimo 150 caracteres"
+              message:
+                "Ingrese una descripcion breve con mínimo 150 caracteres",
             },
           })}
         />
@@ -105,7 +127,7 @@ const FormularioProducto = () => {
         <Form.Label>Categoria:</Form.Label>
         <Form.Select
           {...register("categoria", {
-            required: "Seleccione una Categoría"
+            required: "Seleccione una Categoría",
           })}
         >
           <option value="">Seleccione una Opción</option>
@@ -117,7 +139,7 @@ const FormularioProducto = () => {
         </Form.Select>
       </Form.Group>
 
-{/* ingredientes */}
+      {/* ingredientes */}
       <Form.Group className="mb-3" controlId="formIngredientes">
         <Form.Label>Ingredientes:</Form.Label>
         <Form.Control
@@ -128,11 +150,13 @@ const FormularioProducto = () => {
             required: "Ingrese los ingredientes de la receta",
             minLength: {
               value: 10,
-              message: "Ingrese una descripcion de pasos con mínimo 10 caracteres",
+              message:
+                "Ingrese una descripcion de pasos con mínimo 10 caracteres",
             },
             maxLenght: {
               value: 800,
-              message: "Ingrese una descripcion de pasos con máximo 700 caracteres",
+              message:
+                "Ingrese una descripcion de pasos con máximo 700 caracteres",
             },
           })}
         />
@@ -141,7 +165,7 @@ const FormularioProducto = () => {
         </Form.Text>
       </Form.Group>
 
-{/* pasos */}
+      {/* pasos */}
       <Form.Group className="mb-3" controlId="formPasos">
         <Form.Label>Pasos:</Form.Label>
         <Form.Control
@@ -152,25 +176,23 @@ const FormularioProducto = () => {
             required: "Ingrese los pasos de la receta",
             minLength: {
               value: 10,
-              message: "Ingrese una descripcion de pasos con mínimo 30 caracteres",
+              message:
+                "Ingrese una descripcion de pasos con mínimo 30 caracteres",
             },
             maxLenght: {
               value: 800,
-              message: "Ingrese una descripcion de pasos con máximo 700 caracteres",
+              message:
+                "Ingrese una descripcion de pasos con máximo 700 caracteres",
             },
           })}
         />
-        <Form.Text className="text-danger">
-          {errors.pasos?.message}
-        </Form.Text>
+        <Form.Text className="text-danger">{errors.pasos?.message}</Form.Text>
       </Form.Group>
 
-
-      
       <Button
         type="submit"
         className="btnPrincipal ms-auto mt-5"
-        variant="success"
+        variant="warning"
       >
         Enviar
       </Button>
