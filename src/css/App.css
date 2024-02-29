@@ -1,0 +1,37 @@
+#root {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+.contenidoPrincipal {
+  flex-grow: 1;
+}
+footer {
+  background-color: #e67709;
+}
+.banner {
+  width: 100%;
+  height: 450px;
+}
+         
+         
+.btnPrincipal {
+  background-image: linear-gradient(to right, #FF8008 0%, #FFC837  51%, #FF8008  100%);
+  margin: 10px;
+  padding: 7px 45px;
+  text-align: center;
+  text-transform: uppercase;
+  transition: 0.5s;
+  background-size: 200% auto;
+  color: rgb(8, 8, 8);            
+  box-shadow: 0 0 20px #eee;
+  border-radius: 10px;
+  display: block;
+}
+
+.btnPrincipal:hover {
+  background-position: right center; /* change the direction of the change here */
+  color: #fff;
+  text-decoration: none;
+}
+
