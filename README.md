@@ -4,7 +4,8 @@ Se realizo la página rolling Recetas, donde se muestras distintos platos de com
 
 # Vista Previa
 
-![imagen](https://github.com/mauroarms/tpReactEjer10/assets/95541436/26dd8533-f035-4d28-b4ee-2dbe59336e7d)
+![image](https://github.com/mauroarms/rollingRecetas/assets/95541436/cb11bcc9-377a-4f90-aaea-128e36ae6e5d)
+
 
 
 ## Tecnologias
