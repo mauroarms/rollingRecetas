@@ -61,14 +61,14 @@ export const borrarProductoAPI = async (idProducto) => {
 
 //PUT
 
-export const editarProductoAPI = async (producto, idProducto) =>{
+export const editarRecetaAPI = async (receta, idReceta) =>{
   try{
-    const respuesta = await fetch(`${URI_Recetas}/${idProducto}`,{
+    const respuesta = await fetch(`${URI_Recetas}/${idReceta}`,{
       method: "PUT",
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify(producto)
+      body: JSON.stringify(receta)
     });
     console.log(respuesta);
     return respuesta

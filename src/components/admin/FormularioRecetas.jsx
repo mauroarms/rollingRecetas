@@ -1,9 +1,10 @@
 import { Button, Container, Form } from "react-bootstrap";
 import { useFieldArray, useForm } from "react-hook-form";
-import { crearRecetaAPI } from "../../helpers/queries";
+import { crearRecetaAPI, editarRecetaAPI, obtenerRecetaPorIdAPI } from "../../helpers/queries";
 import Swal from "sweetalert2";
-import { useState } from "react";
-import { Link } from "react-router-dom";
+import { useEffect, useState } from "react";
+import { Link, useNavigate, useParams } from "react-router-dom";
+
 
 const FormularioRecetas = ({ editar }) => {
   const {
@@ -12,46 +13,98 @@ const FormularioRecetas = ({ editar }) => {
     handleSubmit,
     formState: { errors },
     reset,
+    setValue
   } = useForm();
 
+  // ARRAY
   const { fields: pasos, append: appendPaso } = useFieldArray({
     control,
     name: "pasos",
   });
-
   const { fields: ingredientes, append: appendIngrediente } = useFieldArray({
     control,
     name: "ingredientes",
   });
-
   const [cantidadPasos, setCantidadPasos] = useState(2);
   const [cantidadIngredientes, setCantidadIngredientes] = useState(2);
-
   const handleCantidadPasosChange = (event) => {
-    setCantidadPasos(parseInt(event.target.value)); // Parseamos el valor a entero
+    setCantidadPasos(parseInt(event.target.value)); 
   };
   const handleCantidadIngredientesChange = (event) => {
     console.log(cantidadIngredientes);
-    setCantidadIngredientes(parseInt(event.target.value)); // Parseamos el valor a entero
+    setCantidadIngredientes(parseInt(event.target.value)); 
+  };
+
+
+  // EDITAR
+  const { idReceta } = useParams();
+  const navigate = useNavigate();
+  useEffect(() => {
+    if (editar) {
+      cargarReceta(idReceta);
+    }
+  }, []);
+
+  const cargarReceta = async (idBusqueda) => {
+    
+    const respuesta = await obtenerRecetaPorIdAPI(idBusqueda);
+    if (respuesta.status === 200) {
+      const recetaEncontrada = await respuesta.json();
+      setValue("nombre", recetaEncontrada.nombre);
+      setValue("imagen", recetaEncontrada.imagen);
+      setValue("descripcionBreve", recetaEncontrada.descripcionBreve);
+      setValue("descripcionAmplia", recetaEncontrada.descripcionAmplia);
+      setValue("categoria", recetaEncontrada.categoria);
+
+    }
   };
 
   const onSubmit = async (receta) => {
-    const respuesta = await crearRecetaAPI(receta);
-    console.log(respuesta);
-    if (respuesta.status === 201) {
-      Swal.fire({
-        title: "Producto Agregado",
-        text: `Se agregó ${receta.nombre} exitosamente`,
-        icon: "success",
-      });
-      reset();
-    } else {
-      Swal.fire({
-        icon: "error",
-        title: "Error",
-        text: "La receta no fue agregada, intentelo nuevamente más tarde",
-      });
+    if(editar){
+      const respuesta = await editarRecetaAPI(producto, idProducto);
+      if (respuesta.status === 200) {
+        Swal.fire({
+          title: `${producto.nombre} fue modificado correctamente`,
+          text: "¿Qué desea realizar?",
+          icon: "success",
+          showCancelButton: true,
+          confirmButtonColor: "#3085d6",
+          cancelButtonColor: "#d33",
+          confirmButtonText: `Seguir modificando ${producto.nombre}`,
+          cancelButtonText: "Volver a Administración",
+        }).then(async (result) => {
+          if (result.isConfirmed) {
+          } else {
+            navigate("/admin");
+          }
+        });
+      } else {
+        Swal.fire({
+          icon: "error",
+          title: "Error",
+          text: "El producto no fue agregado, intentelo nuevamente más tarde",
+        });
+      }
+
+    }else{
+      const respuesta = await crearRecetaAPI(receta);
+      console.log(respuesta);
+      if (respuesta.status === 201) {
+        Swal.fire({
+          title: "Producto Agregado",
+          text: `Se agregó ${receta.nombre} exitosamente`,
+          icon: "success",
+        });
+        reset();
+      } else {
+        Swal.fire({
+          icon: "error",
+          title: "Error",
+          text: "La receta no fue agregada, intentelo nuevamente más tarde",
+        });
+      }
     }
+
   };
 
   return (

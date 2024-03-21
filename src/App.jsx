@@ -39,7 +39,7 @@ function App() {
           {/* //www.rollingCoffe.com/admin */}
           <Route
             exact
-            path="/admin/editar/:idProducto"
+            path="/admin/editar/:idReceta"
             element={<FormularioRecetas editar={true}></FormularioRecetas>}
           ></Route>
 
