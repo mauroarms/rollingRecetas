@@ -2,9 +2,11 @@ import { Button } from "react-bootstrap";
 import Table from "react-bootstrap/Table";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPenToSquare, faTrash } from "@fortawesome/free-solid-svg-icons";
-import { obtenerListaRecetasAPI } from "../../helpers/queries";
+import { borrarRecetaAPI, obtenerListaRecetasAPI } from "../../helpers/queries";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import Swal from "sweetalert2";
+
 
 const TablaAdministrador = () => {
   const [recetas, setRecetas] = useState([]);
@@ -26,6 +28,37 @@ const TablaAdministrador = () => {
         text: "Intentelo nuevamente más tarde",
       });
     }
+  };
+
+  const borrarReceta = (receta) => {
+    Swal.fire({
+      title: `Estás seguro que deseas borrar "${receta.nombre}"`,
+      text: "No podrás revertir esta acción",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Borrar",
+      cancelButtonText: "Cancelar",
+    }).then(async (result) => {
+      if (result.isConfirmed) {
+        const respuesta = await borrarRecetaAPI(receta.id);
+        if (respuesta.status === 200) {
+          Swal.fire({
+            title: `Se borró "${receta.nombre}" de la lista de Recetas`,
+            text: "Receta borrado exitosamente",
+            icon: "success",
+          });
+          obtenerRecetas();
+        } else {
+          Swal.fire({
+            title: `No se pudo borrar "${receta.nombre}" de la lista de recetas`,
+            text: "Intente de nuevo más tarde",
+            icon: "error",
+          });
+        }
+      }
+    });
   };
 
   return (
@@ -67,7 +100,7 @@ const TablaAdministrador = () => {
                 {/* Borrar fila */}
                 <Button
                   className="mt-5 btnBorrar"
-                  
+                  onClick={() => borrarReceta(receta)}
                 >
                   <FontAwesomeIcon icon={faTrash} />
                 </Button>

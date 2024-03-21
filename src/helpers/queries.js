@@ -47,9 +47,9 @@ export const obtenerRecetaPorIdAPI = async (idReceta) => {
 
 //DELETE
 
-export const borrarProductoAPI = async (idProducto) => {
+export const borrarRecetaAPI = async (idReceta) => {
   try {
-    const respuesta = await fetch(`${URI_Recetas}/${idProducto}`, {
+    const respuesta = await fetch(`${URI_Recetas}/${idReceta}`, {
       method: "DELETE"
     });
     console.log(respuesta)

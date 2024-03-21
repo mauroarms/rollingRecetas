@@ -226,14 +226,16 @@ const FormularioRecetas = ({ editar }) => {
             <option value="">Seleccione una Opción</option>
             <option value="Parrilla">Parrilla</option>
             <option value="Vegano">Vegano</option>
-            <option value="Restaurant">Restaurant</option>
+            <option value="Gourmet">Gourmet</option>
+            <option value="Pescados">Pescados</option>
+            <option value="Aves">Aves</option>
             <option value="Entradas y Aperitivos">Entradas y Aperitivos</option>
             <option value="Guarniciones">Guarniciones</option>
             <option value="Desayunos y Brunch">Desayunos y Brunch</option>
             <option value="Saludable">Saludable</option>
             <option value="Ensaladas">Ensaladas</option>
             <option value="Recetas Express">Recetas Express</option>
-            <option value="Batidos">Batidos</option>
+            <option value="Postres">Postres</option>
           </Form.Select>
         </Form.Group>
         
