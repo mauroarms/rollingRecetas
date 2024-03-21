@@ -1,8 +1,7 @@
 import { useEffect, useState } from "react";
 import { Button, Container } from "react-bootstrap";
-import "../../css/detalleProducto.css";
+import "../../css/detalleReceta.css";
 import { Link, useParams } from "react-router-dom";
-import Recetas from "../receta/Recetas";
 import { obtenerRecetaPorIdAPI } from "../../helpers/queries";
 
 const Receta = () => {
@@ -69,6 +68,35 @@ const Receta = () => {
         </div>
       </div>
 
+      <section className="mt-5">
+        <h1 className="text-center display-4 ">¿Cómo preparar {nombre}? </h1>
+        <Container className="contPasosIngredientes">
+          <article className="w-25">
+            <h2 className="mt-4 display-6">Ingredientes:</h2>
+            <div class="mt-4 border border-warning rounded">
+              <div className="p-3">
+                <h4 className="pt-4">Necesitaras:</h4>
+                <ul className="px-4">
+                  {ingredientes.map((ingrediente, index) => (
+                    <li key={index}>{ingrediente}</li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+          </article>
+          <article>
+            <h2 className="mt-4 display-6">Pasos:</h2>
+            <div className="mt-5">
+              <ol className="pt-4">
+                {pasos.map((ingrediente, index) => (
+                  <li key={index}>{ingrediente}</li>
+                ))}
+              </ol>
+            </div>
+          </article>
+        </Container>
+      </section>
+
       <section className="mb-4">
         <Container className="mb-5">
           <h1 className="my-5 display-5">Sobre esta comida</h1>
@@ -85,42 +113,6 @@ const Receta = () => {
           </div>
         </Container>
       </section>
-
-      <div className="mt-5">
-        <h1 className="text-center display-4 ">¿Cómo preparar {nombre}? </h1>
-      </div>
-
-      <Container className="contPasosIngredientes">
-        <article className="w-25">
-          <h2 className="mt-4 display-6">Ingredientes:</h2>
-          <div class="mt-4 border border-warning rounded">
-            <div className="p-3">
-              <h4 className="pt-4">Necesitaras:</h4>
-              <ul className="px-4">
-                {ingredientes.map((ingrediente, index) => (
-                  <li key={index}>{ingrediente}</li>
-                ))}
-              </ul>
-            </div>
-          </div>
-        </article>
-        <article>
-          <h2 className="mt-4 display-6">Pasos:</h2>
-          <div className="mt-5">
-            <ol className="pt-4">
-              {pasos.map((ingrediente, index) => (
-                <li key={index}>{ingrediente}</li>
-              ))}
-            </ol>
-          </div>
-        </article>
-      </Container>
-
-      <Container className="mt-5">
-        <h1 className="mt-4 display-5">También te podría gustar...</h1>
-        <hr />
-        <Recetas idRecetaAcceso={idReceta}></Recetas>
-      </Container>
     </>
   );
 };

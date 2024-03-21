@@ -24,7 +24,7 @@ function App() {
           
           <Route exact path="/admin" element={<Administrador />}></Route>
           
-          <Route exact path="/:idReceta" element={<DetalleRecetas />}></Route>
+          <Route exact path="/receta/:idReceta" element={<DetalleRecetas />}></Route>
 
           <Route path="*" element={<Error404/>}></Route>
 

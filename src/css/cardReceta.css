@@ -1,6 +1,6 @@
 /*producto*/
 .cardProducto {
-  height: 550px;
+  height: auto;
 }
 .imgCard {
   height: 270px;
@@ -10,6 +10,8 @@
   font-size: 26px;
 }
 .footerProducto {
+  display: flex;
+  justify-content: center;
   background-color: #ffffff;
   display: flex;
   padding: 5px;
@@ -17,7 +19,7 @@
 
 .grillaProductos {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(4, 1fr);
   gap: 25px;
 }
 @media screen and (max-width: 767px) {
@@ -28,5 +30,10 @@
 @media screen and (min-width: 768px) and (max-width: 991px) {
   .grillaProductos {
     grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media screen and (min-width: 992px) and (max-width: 1399px) {
+  .grillaProductos {
+    grid-template-columns: repeat(3, 1fr);
   }
 }

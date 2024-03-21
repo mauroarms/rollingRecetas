@@ -1,10 +1,10 @@
-import { Container } from "react-bootstrap";
-import Button from "react-bootstrap/Button";
-import Card from "react-bootstrap/Card";
-import "../../css/cardProducto.css";
-import { Link } from "react-router-dom";
+import { Container, Button, Card } from "react-bootstrap";
+import "../../css/cardReceta.css";
+import { Link, useNavigate } from "react-router-dom";
 
-const CardReceta = ({id, imagen, nombre, descripcionBreve, categoria}) => {
+const CardReceta = ({id, imagen, nombre, descripcionBreve, categoria }) => {
+
+  const urlAcceso = `/receta/${id}`
 
   return (
     <Card className="cardProducto">
@@ -15,25 +15,21 @@ const CardReceta = ({id, imagen, nombre, descripcionBreve, categoria}) => {
 
           <Card.Title className="tituloProducto mb-3">{nombre}</Card.Title>
 
-          <Card.Text>
-            {descripcionBreve}
-          </Card.Text>
+          <Card.Text>{descripcionBreve}</Card.Text>
         </Container>
-
+      </Card.Body>
+      <Card.Footer className="footerProducto mt-3">
         <Button
-          className="btnPrincipal ms-auto my-auto"
+          className="btnPrincipal mx-auto"
           variant="warning"
           as={Link}
-          to={id}
-          
+          to={urlAcceso}
         >
           Ver
         </Button>
-      </Card.Body>
+      </Card.Footer>
     </Card>
   );
 };
-
-//   margin: auto 0 10px auto;
 
 export default CardReceta;
