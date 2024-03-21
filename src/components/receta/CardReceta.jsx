@@ -18,9 +18,9 @@ const CardReceta = ({id, imagen, nombre, descripcionBreve, categoria }) => {
           <Card.Text>{descripcionBreve}</Card.Text>
         </Container>
       </Card.Body>
-      <Card.Footer className="footerProducto mt-3">
+      <Card.Footer className="footerProducto ">
         <Button
-          className="btnPrincipal mx-auto"
+          className="btnPrincipal mx-auto my-2"
           variant="warning"
           as={Link}
           to={urlAcceso}

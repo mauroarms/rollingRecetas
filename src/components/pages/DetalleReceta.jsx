@@ -70,7 +70,7 @@ const Receta = () => {
       <section className="mt-5">
         <h1 className="text-center display-4 ">¿Cómo preparar {nombre}? </h1>
         <Container className="contPasosIngredientes">
-          <article className="w-25">
+          <article className="contenedorIngredientes">
             <h2 className="mt-4 display-6">Ingredientes:</h2>
             <div class="mt-4 border border-warning rounded">
               <div className="p-3">
@@ -83,7 +83,7 @@ const Receta = () => {
               </div>
             </div>
           </article>
-          <article>
+          <article className="contenedorPasos">
             <h2 className="mt-4 display-6">Pasos:</h2>
             <div className="mt-5">
               <ol className="pt-4">
@@ -105,7 +105,7 @@ const Receta = () => {
               <img
                 src="https://cdn-icons-png.freepik.com/256/1830/1830839.png"
                 alt="logoRollingCoffee"
-                className="img-fluid ms-auto"
+                className="img-fluid"
                 width={200}
               />
             </article>

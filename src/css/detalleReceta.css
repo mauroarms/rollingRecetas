@@ -73,11 +73,12 @@
   margin-top: 50px;
 }
 .descAmplia{
-  width: 75%;
+  width: 50%;
 }
 .icono{
-  width: 25%;
   margin: auto 0 auto auto;
+  display: flex;
+  justify-content: center;
 }
 
 .contPasosIngredientes{
@@ -85,13 +86,58 @@
   margin-top: 30px;
   gap: 50px;
 }
-.contPasosIngredientes article:nth-child(1){
-  width: 400px;
+
+.contenedorIngredientes{
+  width: 70%;
   margin-right: 50px;
 }
 
 
-@media screen and (max-width: 990px) {
+@media screen and (max-width: 767px) {
+  .contenidoAbout{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  .icono{
+    margin-top: 30px;
+    width: 100%;
+  }
+  .image-section {
+    max-height: 570px;
+    flex: 1;
+  }
+  .descAmplia{
+    width: 100%;
+  }
+  .content-section {
+    flex: 3;
+    padding: 15px 25px;
+  }
+
+  .contenidoProducto {
+    flex-direction: column;
+    width: 80%; 
+    height: 90%;
+  }
+  .btnConteiner {
+    bottom: 16px; 
+    right: 50%;
+    transform: translateX(50%);
+  }
+  .contPasosIngredientes{
+    flex-direction: column;
+  }
+  .contenedorIngredientes{
+    width: 100%;
+  }
+  .contPasosIngredientes article:nth-child(1){
+    width: 100%;
+    margin-right: 0;
+  }
+}
+
+@media screen and (min-width: 768px) and (max-width: 991px){
   .image-section {
     max-height: 570px;
     flex: 1;
@@ -118,5 +164,7 @@
     width: 100%;
     margin-right: 0;
   }
+  .contenedorIngredientes{
+    width: 100%;
+  }
 }
-

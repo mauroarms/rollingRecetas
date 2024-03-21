@@ -1,10 +1,13 @@
 import { Button, Container, Form } from "react-bootstrap";
 import { useFieldArray, useForm } from "react-hook-form";
-import { crearRecetaAPI, editarRecetaAPI, obtenerRecetaPorIdAPI } from "../../helpers/queries";
+import {
+  crearRecetaAPI,
+  editarRecetaAPI,
+  obtenerRecetaPorIdAPI,
+} from "../../helpers/queries";
 import Swal from "sweetalert2";
 import { useEffect, useState } from "react";
 import { Link, useNavigate, useParams } from "react-router-dom";
-
 
 const FormularioRecetas = ({ editar }) => {
   const {
@@ -13,7 +16,7 @@ const FormularioRecetas = ({ editar }) => {
     handleSubmit,
     formState: { errors },
     reset,
-    setValue
+    setValue,
   } = useForm();
 
   // ARRAY
@@ -28,13 +31,12 @@ const FormularioRecetas = ({ editar }) => {
   const [cantidadPasos, setCantidadPasos] = useState(2);
   const [cantidadIngredientes, setCantidadIngredientes] = useState(2);
   const handleCantidadPasosChange = (event) => {
-    setCantidadPasos(parseInt(event.target.value)); 
+    setCantidadPasos(parseInt(event.target.value));
   };
   const handleCantidadIngredientesChange = (event) => {
     console.log(cantidadIngredientes);
-    setCantidadIngredientes(parseInt(event.target.value)); 
+    setCantidadIngredientes(parseInt(event.target.value));
   };
-
 
   // EDITAR
   const { idReceta } = useParams();
@@ -46,7 +48,6 @@ const FormularioRecetas = ({ editar }) => {
   }, []);
 
   const cargarReceta = async (idBusqueda) => {
-    
     const respuesta = await obtenerRecetaPorIdAPI(idBusqueda);
     if (respuesta.status === 200) {
       const recetaEncontrada = await respuesta.json();
@@ -55,20 +56,19 @@ const FormularioRecetas = ({ editar }) => {
       setValue("descripcionBreve", recetaEncontrada.descripcionBreve);
       setValue("descripcionAmplia", recetaEncontrada.descripcionAmplia);
       setValue("categoria", recetaEncontrada.categoria);
-      setCantidadPasos(recetaEncontrada.pasos.length)
-      setCantidadIngredientes(recetaEncontrada.ingredientes.length)
-      recetaEncontrada.pasos.map((paso, index)=>{
-        setValue(`pasos.${index}`, paso)
-      })
-      recetaEncontrada.ingredientes.map((ingrediente, index)=>{
-        setValue(`ingredientes.${index}`, ingrediente)
-      })
-
+      setCantidadPasos(recetaEncontrada.pasos.length);
+      setCantidadIngredientes(recetaEncontrada.ingredientes.length);
+      recetaEncontrada.pasos.map((paso, index) => {
+        setValue(`pasos.${index}`, paso);
+      });
+      recetaEncontrada.ingredientes.map((ingrediente, index) => {
+        setValue(`ingredientes.${index}`, ingrediente);
+      });
     }
   };
 
   const onSubmit = async (receta) => {
-    if(editar){
+    if (editar) {
       const respuesta = await editarRecetaAPI(receta, idReceta);
       if (respuesta.status === 200) {
         Swal.fire({
@@ -81,7 +81,9 @@ const FormularioRecetas = ({ editar }) => {
           confirmButtonText: `Seguir modificando ${receta.nombre}`,
           cancelButtonText: "Volver a Administración",
         }).then(async (result) => {
-          if (!result.isConfirmed) {navigate("/admin");} 
+          if (!result.isConfirmed) {
+            navigate("/admin");
+          }
         });
       } else {
         Swal.fire({
@@ -90,8 +92,7 @@ const FormularioRecetas = ({ editar }) => {
           text: "La receta no fue agregada, intentelo nuevamente más tarde",
         });
       }
-
-    }else{
+    } else {
       const respuesta = await crearRecetaAPI(receta);
       console.log(respuesta);
       if (respuesta.status === 201) {
@@ -109,14 +110,15 @@ const FormularioRecetas = ({ editar }) => {
         });
       }
     }
-
   };
 
   return (
     <Container className="my-5">
-      <Button className="btnPrincipal btnVolver" as={Link} to="/">
-        Cancelar
-      </Button>
+      <div className="w-auto mb-5">
+        <Button className="btnPrincipal w-auto" as={Link} to="/">
+          Cancelar
+        </Button>
+      </div>
 
       <h1 className="display-5">{editar ? "Editar" : "Agregar"} Producto</h1>
       <hr />
@@ -238,7 +240,7 @@ const FormularioRecetas = ({ editar }) => {
             <option value="Postres">Postres</option>
           </Form.Select>
         </Form.Group>
-        
+
         <hr />
 
         {/* pasos e ingredientes*/}
@@ -251,7 +253,6 @@ const FormularioRecetas = ({ editar }) => {
               <Form.Select
                 value={cantidadPasos}
                 onChange={handleCantidadPasosChange}
-
               >
                 <option value="2">2</option>
                 <option value="3">3</option>
@@ -303,7 +304,6 @@ const FormularioRecetas = ({ editar }) => {
                 value={cantidadIngredientes}
                 onChange={handleCantidadIngredientesChange}
               >
-                
                 <option value="2">2</option>
                 <option value="3">3</option>
                 <option value="4">4</option>
