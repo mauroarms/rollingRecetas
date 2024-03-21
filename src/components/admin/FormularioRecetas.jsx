@@ -55,8 +55,6 @@ const FormularioRecetas = ({ editar }) => {
       setValue("descripcionBreve", recetaEncontrada.descripcionBreve);
       setValue("descripcionAmplia", recetaEncontrada.descripcionAmplia);
       setValue("categoria", recetaEncontrada.categoria);
-      setValue("cantidadPasos", recetaEncontrada.pasos.length)
-      setValue("cantidadIng", recetaEncontrada.ingredientes.length)
       setCantidadPasos(recetaEncontrada.pasos.length)
       setCantidadIngredientes(recetaEncontrada.ingredientes.length)
       recetaEncontrada.pasos.map((paso, index)=>{
@@ -238,6 +236,7 @@ const FormularioRecetas = ({ editar }) => {
             <option value="Batidos">Batidos</option>
           </Form.Select>
         </Form.Group>
+        
         <hr />
 
         {/* pasos e ingredientes*/}
@@ -250,9 +249,7 @@ const FormularioRecetas = ({ editar }) => {
               <Form.Select
                 value={cantidadPasos}
                 onChange={handleCantidadPasosChange}
-                {...register("cantidadPasos", {
-                  required: "Seleccione una Cantidad de Pasos",
-                })}
+
               >
                 <option value="2">2</option>
                 <option value="3">3</option>
@@ -303,9 +300,6 @@ const FormularioRecetas = ({ editar }) => {
               <Form.Select
                 value={cantidadIngredientes}
                 onChange={handleCantidadIngredientesChange}
-                {...register("cantidadIng", {
-                  required: "Seleccione una Cantidad de Ingredientes",
-                })}
               >
                 
                 <option value="2">2</option>

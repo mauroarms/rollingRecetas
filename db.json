@@ -6,18 +6,22 @@
       "descripcionBreve": "Jugoso y sabroso pollo a la parrilla marinado en una mezcla de limón, hierbas y especias, perfecto para una comida al aire libre.",
       "descripcionAmplia": "Este pollo a la parrilla es una opción clásica y deliciosa para una comida al aire libre con familiares y amigos. El pollo se marina en una mezcla aromática de limón, ajo, romero, tomillo y aceite de oliva, lo que le da un sabor fresco y vibrante. Se cocina a la parrilla hasta que esté tierno y jugoso, creando una comida reconfortante y satisfactoria para disfrutar en cualquier época del año.",
       "categoria": "Parrilla",
-      "cantidadPasos": 3,
       "pasos": [
-        "Marinar el pollo con hierbas y especias durante al menos 2 horas en el refrigerador.",
-        "Preparar la parrilla y cocinar el pollo a fuego medio durante 15-20 minutos, o hasta que esté completamente cocido.",
-        "Servir caliente con guarniciones de tu elección."
+        "En un tazón grande, mezcla el jugo y la ralladura de limón, el ajo picado, el romero fresco picado, el tomillo fresco picado, el aceite de oliva, la sal y la pimienta.",
+        "Coloca los muslos de pollo en la marinada y asegúrate de cubrirlos completamente. Refrigera durante al menos 1 hora, preferiblemente durante la noche para obtener mejores resultados.",
+        "Precalienta la parrilla a fuego medio-alto y engrasa ligeramente la parrilla para evitar que el pollo se pegue.",
+        "Retira los muslos de pollo de la marinada y sacude el exceso de líquido.",
+        "Coloca los muslos de pollo en la parrilla caliente y cocina durante 6-8 minutos por cada lado, o hasta que estén completamente cocidos y dorados por fuera.",
+        "Retira el pollo de la parrilla y deja reposar durante unos minutos antes de servir."
       ],
-      "cantidadIng": 5,
       "ingredientes": [
-        "4 pechugas de pollo",
-        "2 cucharadas de aceite de oliva",
-        "2 dientes de ajo picados",
-        "1 cucharadita de pimentón",
+        "Muslos de pollo, con piel y hueso",
+        "Jugo de limón",
+        "Ralladura de limón",
+        "Ajo picado",
+        "Romero fresco picado",
+        "Tomillo fresco picado",
+        "Aceite de oliva",
         "Sal y pimienta al gusto"
       ],
       "id": "d897"
