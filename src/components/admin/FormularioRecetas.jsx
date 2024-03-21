@@ -55,34 +55,41 @@ const FormularioRecetas = ({ editar }) => {
       setValue("descripcionBreve", recetaEncontrada.descripcionBreve);
       setValue("descripcionAmplia", recetaEncontrada.descripcionAmplia);
       setValue("categoria", recetaEncontrada.categoria);
+      setValue("cantidadPasos", recetaEncontrada.pasos.length)
+      setValue("cantidadIng", recetaEncontrada.ingredientes.length)
+      setCantidadPasos(recetaEncontrada.pasos.length)
+      setCantidadIngredientes(recetaEncontrada.ingredientes.length)
+      recetaEncontrada.pasos.map((paso, index)=>{
+        setValue(`pasos.${index}`, paso)
+      })
+      recetaEncontrada.ingredientes.map((ingrediente, index)=>{
+        setValue(`ingredientes.${index}`, ingrediente)
+      })
 
     }
   };
 
   const onSubmit = async (receta) => {
     if(editar){
-      const respuesta = await editarRecetaAPI(producto, idProducto);
+      const respuesta = await editarRecetaAPI(receta, idReceta);
       if (respuesta.status === 200) {
         Swal.fire({
-          title: `${producto.nombre} fue modificado correctamente`,
+          title: `${receta.nombre} fue modificado correctamente`,
           text: "¿Qué desea realizar?",
           icon: "success",
           showCancelButton: true,
           confirmButtonColor: "#3085d6",
           cancelButtonColor: "#d33",
-          confirmButtonText: `Seguir modificando ${producto.nombre}`,
+          confirmButtonText: `Seguir modificando ${receta.nombre}`,
           cancelButtonText: "Volver a Administración",
         }).then(async (result) => {
-          if (result.isConfirmed) {
-          } else {
-            navigate("/admin");
-          }
+          if (!result.isConfirmed) {navigate("/admin");} 
         });
       } else {
         Swal.fire({
           icon: "error",
           title: "Error",
-          text: "El producto no fue agregado, intentelo nuevamente más tarde",
+          text: "La receta no fue agregada, intentelo nuevamente más tarde",
         });
       }
 
@@ -221,7 +228,7 @@ const FormularioRecetas = ({ editar }) => {
             <option value="">Seleccione una Opción</option>
             <option value="Parrilla">Parrilla</option>
             <option value="Vegano">Vegano</option>
-            <option value="Restaurant">Restautant</option>
+            <option value="Restaurant">Restaurant</option>
             <option value="Entradas y Aperitivos">Entradas y Aperitivos</option>
             <option value="Guarniciones">Guarniciones</option>
             <option value="Desayunos y Brunch">Desayunos y Brunch</option>
@@ -243,6 +250,9 @@ const FormularioRecetas = ({ editar }) => {
               <Form.Select
                 value={cantidadPasos}
                 onChange={handleCantidadPasosChange}
+                {...register("cantidadPasos", {
+                  required: "Seleccione una Cantidad de Pasos",
+                })}
               >
                 <option value="2">2</option>
                 <option value="3">3</option>
@@ -293,7 +303,11 @@ const FormularioRecetas = ({ editar }) => {
               <Form.Select
                 value={cantidadIngredientes}
                 onChange={handleCantidadIngredientesChange}
+                {...register("cantidadIng", {
+                  required: "Seleccione una Cantidad de Ingredientes",
+                })}
               >
+                
                 <option value="2">2</option>
                 <option value="3">3</option>
                 <option value="4">4</option>

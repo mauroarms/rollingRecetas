@@ -1,24 +1,26 @@
 {
   "recetas": [
     {
-      "id": "d897",
-      "nombre": "Pollo a la Parrilla",
+      "nombre": "Pollo a la Parrilla Marinado al Limón y Hierbas",
       "imagen": "https://www.goya.com/media/7571/citrus-grilled-chicken.jpg?quality=80",
-      "descripcionBreve": "Delicioso pollo marinado y cocido a la parrilla",
-      "descripcionAmplia": "Una receta clásica de pollo a la parrilla que resulta tierna, jugosa y llena de sabor. Ideal para una comida al aire libre con familia y amigos.",
+      "descripcionBreve": "Jugoso y sabroso pollo a la parrilla marinado en una mezcla de limón, hierbas y especias, perfecto para una comida al aire libre.",
+      "descripcionAmplia": "Este pollo a la parrilla es una opción clásica y deliciosa para una comida al aire libre con familiares y amigos. El pollo se marina en una mezcla aromática de limón, ajo, romero, tomillo y aceite de oliva, lo que le da un sabor fresco y vibrante. Se cocina a la parrilla hasta que esté tierno y jugoso, creando una comida reconfortante y satisfactoria para disfrutar en cualquier época del año.",
       "categoria": "Parrilla",
+      "cantidadPasos": 3,
       "pasos": [
         "Marinar el pollo con hierbas y especias durante al menos 2 horas en el refrigerador.",
         "Preparar la parrilla y cocinar el pollo a fuego medio durante 15-20 minutos, o hasta que esté completamente cocido.",
         "Servir caliente con guarniciones de tu elección."
       ],
+      "cantidadIng": 5,
       "ingredientes": [
         "4 pechugas de pollo",
         "2 cucharadas de aceite de oliva",
         "2 dientes de ajo picados",
         "1 cucharadita de pimentón",
         "Sal y pimienta al gusto"
-      ]
+      ],
+      "id": "d897"
     },
     {
       "id": "h743",
