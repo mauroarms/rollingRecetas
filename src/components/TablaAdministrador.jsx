@@ -33,12 +33,8 @@ const TablaAdministrador = () => {
         <tr>
           <th>Cod</th>
           <th>Titulo</th>
-          <th>Descripcion Breve</th>
-          <th>Descripcion Amplia</th>
           <th>URL de Imagen</th>
           <th>Categoria</th>
-          <th>Ingredientes</th>
-          <th>Pasos</th>
           <th>Opciones</th>
         </tr>
       </thead>
@@ -47,8 +43,6 @@ const TablaAdministrador = () => {
           <tr key={receta.id}>
             <td>{receta.id}</td>
             <td>{receta.nombre}</td>
-            <td>{receta.descripcionBreve}</td>
-            <td>{receta.descripcionAmplia}</td>
             <td className="d-flex">
               <img
                 src={receta.imagen}
@@ -59,8 +53,6 @@ const TablaAdministrador = () => {
               />
             </td>
             <td>{receta.categoria}</td>
-            <td>{receta.ingredientes}</td>
-            <td>{receta.pasos}</td>
             <td>
               <div className="d-flex flex-column mt-3 align-items-center">
                 <Button variant="warning">

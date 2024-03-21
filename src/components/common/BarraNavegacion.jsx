@@ -13,8 +13,8 @@ const BarraNavegacion = () => {
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="ms-auto">
-            <NavLink end to='/login' className='nav-link'>Iniciar Sesión</NavLink>
-            <NavLink end to='/registro' className='nav-link'>Registrarme</NavLink>
+
+            <NavLink end to='/registro' className='nav-link'>Iniciar Sesión / Registrarme</NavLink>
             <NavLink end to='/admin' className='nav-link'>Administrador</NavLink>
           </Nav>
         </Navbar.Collapse>

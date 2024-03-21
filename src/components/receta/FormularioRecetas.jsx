@@ -11,6 +11,11 @@ const FormularioRecetas = () => {
     reset
   } = useForm();
 
+  const [cantidadPasos, setCantidadPasos] = useState(1);
+  const handleCantidadPasosChange = (event) => {
+    setCantidadPasos(parseInt(event.target.value)); // Parseamos el valor a entero
+  };
+
   const onSubmit = async (receta) => {
     console.log(receta);
 
@@ -122,7 +127,8 @@ const FormularioRecetas = () => {
           {errors.descripcionAmplia?.message}
         </Form.Text>
       </Form.Group>
-
+      
+      {/* desc amp */}
       <Form.Group className="mb-3" controlId="formCategoria">
         <Form.Label>Categoria:</Form.Label>
         <Form.Select
@@ -134,7 +140,11 @@ const FormularioRecetas = () => {
           <option value="Parrilla">Parrilla</option>
           <option value="Vegano">Vegano</option>
           <option value="Restaurant">Restautant</option>
-          <option value="Rapido">Rapido</option>
+          <option value="Entradas y Aperitivos">Entradas y Aperitivos</option>
+          <option value="Guarniciones">Guarniciones</option>
+          <option value="Desayunos y Brunch">Desayunos y Brunch</option>
+          <option value="Saludable">Saludable</option>
+          <option value="Recetas Express">Recetas Express</option>
           <option value="Batidos">Batidos</option>
         </Form.Select>
       </Form.Group>
@@ -143,20 +153,20 @@ const FormularioRecetas = () => {
       <Form.Group className="mb-3" controlId="formIngredientes">
         <Form.Label>Ingredientes:</Form.Label>
         <Form.Control
-          as="textarea"
-          rows={3}
+          className="barraIngrediente"
+          type="text"
           placeholder="Ingredientes línea por línea"
           {...register("ingredientes", {
-            required: "Ingrese los ingredientes de la receta",
+            required: "Ingrese el ingrediente",
             minLength: {
               value: 10,
               message:
-                "Ingrese una descripcion de pasos con mínimo 10 caracteres",
+                "Ingrese una descripcion de ingredientes con mínimo 10 caracteres",
             },
             maxLenght: {
               value: 800,
               message:
-                "Ingrese una descripcion de pasos con máximo 700 caracteres",
+                "Ingrese una descripcion de ingredientes con máximo 700 caracteres",
             },
           })}
         />
@@ -165,8 +175,10 @@ const FormularioRecetas = () => {
         </Form.Text>
       </Form.Group>
 
+      
+
       {/* pasos */}
-      <Form.Group className="mb-3" controlId="formPasos">
+      <Form.Group className="mb-3 grupoPasos" controlId="formPasos">
         <Form.Label>Pasos:</Form.Label>
         <Form.Control
           as="textarea"
@@ -186,7 +198,9 @@ const FormularioRecetas = () => {
             },
           })}
         />
+
         <Form.Text className="text-danger">{errors.pasos?.message}</Form.Text>
+
       </Form.Group>
 
       <Button

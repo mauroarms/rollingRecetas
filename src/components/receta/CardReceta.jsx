@@ -15,9 +15,6 @@ const CardReceta = ({ imagen, nombre, descripcion, categoria}) => {
           <Card.Title className="tituloProducto mb-3">{nombre}</Card.Title>
 
           <Card.Text>
-            <strong>
-              Descripción: <br />
-            </strong>
             {descripcion}
           </Card.Text>
         </Container>
