@@ -16,6 +16,7 @@ const Recetas = () => {
       const recetasAPI = await respuesta.json();
       setRecetas(recetasAPI);
       console.log(recetasAPI);
+
     } else {
       Swal.fire({
         icon: "error",
@@ -28,10 +29,13 @@ const Recetas = () => {
   return (
     <section className="grillaProductos">
       {recetas.map((receta) => (
-        <CardReceta key={receta.id}
+        <CardReceta 
+          key={receta.id}
+          id={receta.id}
           imagen={receta.imagen}
           nombre={receta.nombre}
-          descripcion={receta.descripcionBreve}
+          descripcionBreve={receta.descripcionBreve}
+          descripcionAmplia={receta.descripcionBreve}
           categoria={receta.categoria}
         />
       ))}

@@ -4,7 +4,8 @@ import Card from "react-bootstrap/Card";
 import "../../css/cardProducto.css";
 import { Link } from "react-router-dom";
 
-const CardReceta = ({ imagen, nombre, descripcion, categoria}) => {
+const CardReceta = ({id, imagen, nombre, descripcionBreve, categoria}) => {
+
   return (
     <Card className="cardProducto">
       <Card.Img className="imgCard" variant="top" src={imagen} />
@@ -15,7 +16,7 @@ const CardReceta = ({ imagen, nombre, descripcion, categoria}) => {
           <Card.Title className="tituloProducto mb-3">{nombre}</Card.Title>
 
           <Card.Text>
-            {descripcion}
+            {descripcionBreve}
           </Card.Text>
         </Container>
 
@@ -23,7 +24,8 @@ const CardReceta = ({ imagen, nombre, descripcion, categoria}) => {
           className="btnPrincipal ms-auto my-auto"
           variant="warning"
           as={Link}
-          to="/producto"
+          to={id}
+          
         >
           Ver
         </Button>

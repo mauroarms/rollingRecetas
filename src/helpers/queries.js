@@ -28,6 +28,16 @@ export const obtenerListaRecetasAPI = async () => {
       console.log(respuesta);
       return respuesta;
     } catch (error) {
-      console.log(error);
+      console.error(error);
     }
 };
+
+export const obtenerRecetaPorIdAPI = async (idReceta) => {
+  try{
+    const respuesta = await fetch(`${URI_Recetas}/${idReceta}`)
+    return respuesta
+
+  }catch(error){
+    console.error(error)
+  }
+}
