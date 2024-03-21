@@ -57,7 +57,6 @@ const Receta = () => {
             <div className="btnConteiner">
               <Button
                 className="btnPrincipal"
-                variant="warning"
                 as={Link}
                 to="/"
               >

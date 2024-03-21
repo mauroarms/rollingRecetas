@@ -90,8 +90,113 @@
         "1 cebolla",
         "Aceite de oliva, sal y pimienta al gusto"
       ]
+    },
+    {
+      "id": "r718",
+      "nombre": "Ensalada de Quinoa con Vegetales Asados",
+      "imagen": "https://s1.ppllstatics.com/hoy/www/multimedia/2023/04/19/ensalada-quinoa-RL2Qfd15hcd723oMWQFbIbI-1200x840@Hoy.jpg",
+      "descripcionBreve": "Ensalada saludable con quinoa, verduras asadas y aderezo de limón",
+      "descripcionAmplia": "La ensalada de quinoa con vegetales asados es una opción nutritiva y deliciosa para una comida ligera pero satisfactoria. La quinoa se combina con vegetales asados, como calabacines, pimientos y cebollas, y se adereza con un aliño de limón y hierbas frescas. Esta ensalada es perfecta como plato principal o como acompañamiento y es ideal para aquellos que buscan una opción saludable y sabrosa.",
+      "categoria": "Ensaladas",
+      "pasos": [
+        "Cocinar la quinoa según las instrucciones del paquete y dejar enfriar.",
+        "Preparar los vegetales y cortarlos en trozos grandes.",
+        "Asar los vegetales en el horno o en una parrilla hasta que estén tiernos y ligeramente dorados.",
+        "Mezclar la quinoa cocida con los vegetales asados en un tazón grande.",
+        "Preparar el aderezo mezclando jugo de limón, aceite de oliva, ajo picado, sal, pimienta y hierbas frescas.",
+        "Verter el aderezo sobre la ensalada y mezclar bien para combinar todos los ingredientes.",
+        "Servir la ensalada fría o a temperatura ambiente y disfrutar."
+      ],
+      "ingredientes": [
+        "1 taza de quinoa",
+        "2 calabacines",
+        "1 pimiento rojo",
+        "1 pimiento amarillo",
+        "1 cebolla roja",
+        "Aceite de oliva, sal y pimienta al gusto",
+        "Jugo de 2 limones",
+        "2 dientes de ajo",
+        "Hierbas frescas (como perejil o albahaca)"
+      ]
+    },
+    {
+      "id": "efcc",
+      "nombre": "Hamburguesa Vegana de Quinoa",
+      "imagen": "https://deliciaskitchen.com/wp-content/uploads/2017/11/hamburguesa-de-quinoa-calabaza-garam-masala.jpg",
+      "descripcionBreve": "Deliciosa hamburguesa vegana cargada de proteínas y sabores, perfecta para una comida rápida y saludable.",
+      "descripcionAmplia": "Esta hamburguesa vegana de quinoa es una opción deliciosa y nutritiva para disfrutar en cualquier momento. La quinoa, los frijoles negros y las especias se combinan para crear una textura y sabor irresistibles. Sirve en un pan integral con tus ingredientes favoritos y acompaña con una ensalada fresca para una comida completa y equilibrada.",
+      "categoria": "Vegano",
+      "pasos": [
+        "Cocina la quinoa según las instrucciones del paquete y déjala enfriar.",
+        "En un procesador de alimentos, mezcla la quinoa cocida, los frijoles negros, la cebolla picada, el ajo, el comino, el cilantro y el jugo de limón hasta obtener una masa homogénea.",
+        "Forma la mezcla en hamburguesas y refrigéralas durante al menos 30 minutos.",
+        "Calienta una sartén a fuego medio-alto y cocina las hamburguesas durante 4-5 minutos por cada lado, o hasta que estén doradas y crujientes.",
+        "Sirve las hamburguesas en pan integral con rodajas de tomate, aguacate y lechuga."
+      ],
+      "ingredientes": [
+        "1 taza de quinoa cocida",
+        "1 lata de frijoles negros, escurridos y enjuagados",
+        "1/4 taza de cebolla picada",
+        "2 dientes de ajo, picados",
+        "1 cucharadita de comino molido",
+        "1/4 taza de cilantro fresco picado",
+        "2 cucharadas de jugo de limón",
+        "Sal y pimienta al gusto",
+        "Pan integral para servir",
+        "Rodajas de tomate, aguacate y lechuga para acompañar"
+      ]
+    },
+    {
+      "id": "78c1",
+      "nombre": "Filet con Chimichurri",
+      "imagen": "https://okdiario.com/img/2019/01/19/receta-de-churrasco-de-ternera-con-chimichurri-1.jpg",
+      "descripcionBreve": "Delicioso filete de ternera a la parrilla con chimichurri, una combinación de sabores intensos perfecta para una cena especial.",
+      "descripcionAmplia": "Este filete de ternera a la parrilla es una opción clásica y deliciosa para cualquier ocasión. La carne se sazona con sal y pimienta, se cocina a la parrilla hasta obtener el punto deseado y se sirve con una generosa porción de chimichurri fresco y picante. El contraste entre la carne tierna y el chimichurri vibrante crea una experiencia gastronómica inolvidable.",
+      "categoria": "Parrilla",
+      "pasos": [
+        "Precalienta la parrilla a fuego medio-alto",
+        "Sazona los filetes de ternera con sal y pimienta al gusto.",
+        "Coloca los filetes en la parrilla caliente y cocina durante 4-5 minutos por cada lado para obtener un término medio.",
+        "Mientras tanto, prepara el chimichurri combinando perejil fresco picado, ajo picado, vinagre de vino tinto, aceite de oliva, hojuelas de pimiento rojo triturado, sal y pimienta en un tazón.",
+        "Retira los filetes de la parrilla y déjalos reposar durante unos minutos antes de cortarlos en rodajas.",
+        "Sirve los filetes de ternera con una generosa porción de chimichurri por encima."
+      ],
+      "ingredientes": [
+        "Filetes de ternera",
+        "Sal y pimienta al gusto",
+        "1 taza de perejil fresco picado",
+        "3 dientes de ajo, picados",
+        "1/4 taza de vinagre de vino tinto",
+        "1/2 taza de aceite de oliva",
+        "1 cucharadita de hojuelas de pimiento rojo triturado"
+      ]
+    },
+    {
+      "id": "6aba",
+      "pasos": [
+        "En un tazón grande, mezcla el jugo de limón, el aceite de oliva, el ajo picado, el orégano, el tomillo, la sal y la pimienta.",
+        "Corta el pollo en trozos pequeños y agrégalo a la marinada. Refrigera durante al menos 30 minutos.",
+        "Mientras tanto, corta las verduras en trozos del mismo tamaño.",
+        "Ensarta los trozos de pollo y las verduras en brochetas de bambú, alternando los ingredientes según tu preferencia.",
+        "Precalienta la parrilla a fuego medio-alto y engrasa ligeramente la parrilla.",
+        "Coloca las brochetas en la parrilla caliente y cocina durante 10-12 minutos, volteándolas ocasionalmente, hasta que el pollo esté cocido y las verduras estén tiernas y ligeramente doradas.",
+        "Sirve las brochetas calientes y disfruta"
+      ],
+      "ingredientes": [
+        "Pechugas de pollo, cortadas en trozos",
+        "Jugo de limón",
+        "Aceite de oliva",
+        "Ajo picado",
+        "Orégano seco",
+        "Tomillo seco",
+        "Sal y pimienta al gusto",
+        "Pimientos, cebolla, champiñones y tomates cherry, cortados en trozos"
+      ],
+      "nombre": "Brochetas de Pollo y Verduras a la Parrilla",
+      "imagen": "https://okdiario.com/img/2017/03/16/receta-de-brochetas-de-verduras.jpg",
+      "descripcionBreve": "Coloridas y sabrosas brochetas de pollo y verduras a la parrilla, perfectas para una comida al aire libre con amigos y familiares.",
+      "descripcionAmplia": "stas brochetas de pollo y verduras son una opción fácil y deliciosa para una comida al aire libre. El pollo se marina en una mezcla de limón, aceite de oliva y hierbas antes de ser ensartado junto con pimientos, cebolla, champiñones y tomates cherry en brochetas de bambú. Se cocinan a la parrilla hasta que estén doradas y tiernas, creando una comida nutritiva y satisfactoria para disfrutar con tus seres queridos.",
+      "categoria": "Parrilla"
     }
-    
-    
   ]
 }

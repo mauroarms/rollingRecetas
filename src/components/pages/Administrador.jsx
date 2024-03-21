@@ -1,49 +1,22 @@
-import { Container, Button, Modal } from "react-bootstrap";
-import TablaAdministrador from "../TablaAdministrador";
-import { useState } from "react";
-import FormularioProducto from "../receta/FormularioRecetas";
-
+import { Container} from "react-bootstrap";
+import TablaAdministrador from "../admin/TablaAdministrador";
+import { Link } from "react-router-dom";
 
 const Administrador = () => {
-  const [show, setShow] = useState(false);
-  const handleClose = () => setShow(false);
-  const handleShow = () => setShow(true);
-
-
   return (
     <>
       <Container>
         <div className="d-flex justify-content-between mt-4">
           <h1 className=" display-5">Todas las Recetas</h1>
-          <Button
-            className="btnPrincipal ms-auto my-auto"
-            variant="warning"
-            onClick={handleShow}
-          >
-            Agregar
-          </Button>
+          <div className="d-flex justify-content-center">
+            <Link className="btnPrincipal my-4 " to="/admin/agregar">
+              Agregar Producto
+            </Link>
+          </div>
         </div>
-
         <hr />
         <TablaAdministrador></TablaAdministrador>
       </Container>
-
-      <Modal
-        show={show}
-        onHide={handleClose}
-        backdrop="static"
-        keyboard={false}
-        centered
-        size="lg"
-        aria-labelledby="contained-modal-title-vcenter"
-      >
-        <Modal.Header closeButton>
-          <Modal.Title>Agregar Receta</Modal.Title>
-        </Modal.Header>
-        <Modal.Body>
-          <FormularioProducto></FormularioProducto>
-        </Modal.Body>
-      </Modal>
     </>
   );
 };

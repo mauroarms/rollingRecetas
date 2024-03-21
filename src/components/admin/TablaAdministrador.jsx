@@ -2,8 +2,9 @@ import { Button } from "react-bootstrap";
 import Table from "react-bootstrap/Table";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPenToSquare, faTrash } from "@fortawesome/free-solid-svg-icons";
-import { obtenerListaRecetasAPI } from "../helpers/queries";
+import { obtenerListaRecetasAPI } from "../../helpers/queries";
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 
 const TablaAdministrador = () => {
   const [recetas, setRecetas] = useState([]);
@@ -55,10 +56,19 @@ const TablaAdministrador = () => {
             <td>{receta.categoria}</td>
             <td>
               <div className="d-flex flex-column mt-3 align-items-center">
-                <Button variant="warning">
+                {/* Editar fila */}
+                <Link
+                  className="btnPrincipal"
+                  to={`/admin/editar/${receta.id}`}
+                >
                   <FontAwesomeIcon icon={faPenToSquare} />
-                </Button>
-                <Button variant="danger" className="mt-5">
+                </Link>
+
+                {/* Borrar fila */}
+                <Button
+                  className="mt-5 btnBorrar"
+                  
+                >
                   <FontAwesomeIcon icon={faTrash} />
                 </Button>
               </div>

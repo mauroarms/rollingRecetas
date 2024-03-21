@@ -17,9 +17,10 @@ footer {
          
 .btnPrincipal {
   border: none;
+  text-decoration: none;
   background-image: linear-gradient(to right, #FF8008 0%, #FFC837  51%, #FF8008  100%);
   margin: 10px;
-  padding: 7px 45px;
+  padding: 8px 35px;;
   text-align: center;
   text-transform: uppercase;
   transition: 0.5s;
@@ -30,9 +31,38 @@ footer {
   display: block;
   font-weight: 550;
 }
-
+.btnVolver{
+  width: 10%;
+  margin: 10px 0px;
+  padding: 7px 0px;
+}
 .btnPrincipal:hover {
-  background-position: right center; /* change the direction of the change here */
+  background-position: right center; 
   text-decoration: none;
 }
 
+
+.btnBorrar {
+  border: none;
+  background-image: linear-gradient(
+    to right,
+    #e52d27 0%,
+    #b31217 51%,
+    #e52d27 100%
+  );
+  padding: 8px 35px;
+  text-align: center;
+  text-transform: uppercase;
+  transition: 0.7s;
+  background-size: 200% auto;
+  color: white;
+  box-shadow: 0 0 20px #eee;
+  border-radius: 10px;
+  display: block;
+}
+
+.btnBorrar:hover {
+  background-position: right center; /* change the direction of the change here */
+  color: #fff;
+  text-decoration: none;
+}
