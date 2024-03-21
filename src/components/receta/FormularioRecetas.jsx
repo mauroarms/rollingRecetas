@@ -1,16 +1,24 @@
 import { Button, Form } from "react-bootstrap";
-import { useForm } from "react-hook-form";
+import { useFieldArray, useForm } from "react-hook-form";
 import { crearRecetaAPI } from "../../helpers/queries";
 import Swal from "sweetalert2";
+import { useState   } from "react";
+
 
 const FormularioRecetas = () => {
   const {
     register,
+    control,
     handleSubmit,
     formState: { errors },
     reset
   } = useForm();
 
+
+  const { fields, append } = useFieldArray({
+    control,
+    name: "pasos", // Nombre del campo de array
+  });
   const [cantidadPasos, setCantidadPasos] = useState(1);
   const handleCantidadPasosChange = (event) => {
     setCantidadPasos(parseInt(event.target.value)); // Parseamos el valor a entero
@@ -128,7 +136,7 @@ const FormularioRecetas = () => {
         </Form.Text>
       </Form.Group>
       
-      {/* desc amp */}
+      {/* categoria */}
       <Form.Group className="mb-3" controlId="formCategoria">
         <Form.Label>Categoria:</Form.Label>
         <Form.Select
@@ -175,10 +183,42 @@ const FormularioRecetas = () => {
         </Form.Text>
       </Form.Group>
 
-      
-
       {/* pasos */}
-      <Form.Group className="mb-3 grupoPasos" controlId="formPasos">
+
+      <Form.Group className="mb-3" controlId="formCantidad">
+        <Form.Label>Cantidad de Pasos:</Form.Label>
+        <Form.Select value={cantidadPasos} onChange={handleCantidadPasosChange}>
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+        </Form.Select>
+      </Form.Group>
+
+      {Array.from({ length: cantidadPasos }).map((_, index) => (
+        <Form.Group key={index} className="mb-3" controlId={`pasos[${index}]`}>
+          <Form.Label>Paso {index + 1}:</Form.Label>
+          <Form.Control
+            type="text"
+            placeholder={`Paso ${index + 1}`}
+            {...register(`pasos.${index}`, {
+              required: "Ingrese una descripción de paso",
+              minLength: {
+                value: 2,
+                message: "Ingrese un nombre con mínimo 2 caracteres",
+              },
+              maxLength: {
+                value: 50,
+                message: "Ingrese un nombre con máximo 50 caracteres",
+              },
+            })}
+          />
+        </Form.Group>
+      ))}
+    
+
+      
+      {/* <Form.Group className="mb-3 grupoPasos" controlId="formPasos">
         <Form.Label>Pasos:</Form.Label>
         <Form.Control
           as="textarea"
@@ -201,7 +241,7 @@ const FormularioRecetas = () => {
 
         <Form.Text className="text-danger">{errors.pasos?.message}</Form.Text>
 
-      </Form.Group>
+      </Form.Group> */}
 
       <Button
         type="submit"
