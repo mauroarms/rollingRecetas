@@ -49,17 +49,31 @@ const Receta = () => {
       </div>
 
       <Container className="contPasosIngredientes">
-        <article>
+        <article className="w-25">
           <h2 className="mt-4 display-6">Ingredientes:</h2>
-          <p>
-            {ingredientes}
-          </p>
+          <div class="mt-4 border border-warning rounded">
+            <ul className="p-5">
+              <li>sfafafsa</li>
+              <li>sfafafsa</li>
+              <li>sfafafsa</li>
+              <li>sfafafsa</li>
+              <li>sfafafsa</li>
+              <li>sfafafsa</li>
+            </ul>
+          </div>
         </article>
         <article >
           <h2 className="mt-4 display-6">Pasos:</h2>
-          <p>
-            {pasos}
-          </p>
+          <div className="mt-5">
+            <ol className="pt-4">
+              <li>sfafafsa</li>
+              <li>sfafafsa</li>
+              <li>sfafafsa</li>
+              <li>sfafafsa</li>
+              <li>sfafafsa</li>
+              <li>sfafafsa</li>
+            </ol>
+          </div>
         </article>
       </Container>
 

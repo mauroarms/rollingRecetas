@@ -2,8 +2,7 @@ import { Button, Form } from "react-bootstrap";
 import { useFieldArray, useForm } from "react-hook-form";
 import { crearRecetaAPI } from "../../helpers/queries";
 import Swal from "sweetalert2";
-import { useState   } from "react";
-
+import { useState } from "react";
 
 const FormularioRecetas = () => {
   const {
@@ -11,17 +10,22 @@ const FormularioRecetas = () => {
     control,
     handleSubmit,
     formState: { errors },
-    reset
+    reset,
   } = useForm();
-
 
   const { fields, append } = useFieldArray({
     control,
-    name: "pasos", // Nombre del campo de array
+    name: "pasos",
+    name: "ingredientes" // Nombre del campo de array
   });
-  const [cantidadPasos, setCantidadPasos] = useState(1);
+  const [cantidadPasos, setCantidadPasos] = useState(2);
+  const [cantidadIngredientes, setCantidadIngredientes] = useState(2);
+
   const handleCantidadPasosChange = (event) => {
     setCantidadPasos(parseInt(event.target.value)); // Parseamos el valor a entero
+  };
+  const handleCantidadIngredientesChange = (event) => {
+    setCantidadIngredientes(parseInt(event.target.value)); // Parseamos el valor a entero
   };
 
   const onSubmit = async (receta) => {
@@ -135,7 +139,7 @@ const FormularioRecetas = () => {
           {errors.descripcionAmplia?.message}
         </Form.Text>
       </Form.Group>
-      
+
       {/* categoria */}
       <Form.Group className="mb-3" controlId="formCategoria">
         <Form.Label>Categoria:</Form.Label>
@@ -157,67 +161,97 @@ const FormularioRecetas = () => {
         </Form.Select>
       </Form.Group>
 
-      {/* ingredientes */}
-      <Form.Group className="mb-3" controlId="formIngredientes">
-        <Form.Label>Ingredientes:</Form.Label>
-        <Form.Control
-          className="barraIngrediente"
-          type="text"
-          placeholder="Ingredientes línea por línea"
-          {...register("ingredientes", {
-            required: "Ingrese el ingrediente",
-            minLength: {
-              value: 10,
-              message:
-                "Ingrese una descripcion de ingredientes con mínimo 10 caracteres",
-            },
-            maxLenght: {
-              value: 800,
-              message:
-                "Ingrese una descripcion de ingredientes con máximo 700 caracteres",
-            },
-          })}
-        />
-        <Form.Text className="text-danger">
-          {errors.ingredientes?.message}
-        </Form.Text>
-      </Form.Group>
+          <hr />
 
-      {/* pasos */}
+      {/* pasos e ingredientes*/}
 
-      <Form.Group className="mb-3" controlId="formCantidad">
-        <Form.Label>Cantidad de Pasos:</Form.Label>
-        <Form.Select value={cantidadPasos} onChange={handleCantidadPasosChange}>
-          <option value="1">1</option>
-          <option value="2">2</option>
-          <option value="3">3</option>
-          <option value="4">4</option>
-        </Form.Select>
-      </Form.Group>
+      <section className="d-flex gap-5">
+        {/* Pasos */}
+        <article className="w-50">
+          <Form.Group className="mb-3" controlId="formCantidadPasos">
+            <Form.Label>Cantidad de Pasos:</Form.Label>
+            <Form.Select
+              value={cantidadPasos}
+              onChange={handleCantidadPasosChange}
+            >
+              <option value="2">2</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
+              <option value="5">5</option>
+              <option value="6">6</option>
+            </Form.Select>
+          </Form.Group>
 
-      {Array.from({ length: cantidadPasos }).map((_, index) => (
-        <Form.Group key={index} className="mb-3" controlId={`pasos[${index}]`}>
-          <Form.Label>Paso {index + 1}:</Form.Label>
-          <Form.Control
-            type="text"
-            placeholder={`Paso ${index + 1}`}
-            {...register(`pasos.${index}`, {
-              required: "Ingrese una descripción de paso",
-              minLength: {
-                value: 2,
-                message: "Ingrese un nombre con mínimo 2 caracteres",
-              },
-              maxLength: {
-                value: 50,
-                message: "Ingrese un nombre con máximo 50 caracteres",
-              },
-            })}
-          />
-        </Form.Group>
-      ))}
-    
+          {Array.from({ length: cantidadPasos }).map((_, index) => (
+            <Form.Group
+              key={index}
+              className="mb-3"
+              controlId={`pasos[${index}]`}
+            >
+              <Form.Label>Paso {index + 1}:</Form.Label>
+              <Form.Control
+                type="text"
+                placeholder={`Paso ${index + 1}`}
+                {...register(`pasos.${index}`, {
+                  required: "Ingrese una descripción de paso",
+                  minLength: {
+                    value: 2,
+                    message: "Ingrese un nombre con mínimo 2 caracteres",
+                  },
+                  maxLength: {
+                    value: 50,
+                    message: "Ingrese un nombre con máximo 50 caracteres",
+                  },
+                })}
+              />
+            </Form.Group>
+          ))}
+        </article>
 
-      
+                
+        {/* Ingredientes */}
+        <article className="w-50">
+          <Form.Group className="mb-3" controlId="formCantidadIngredientes">
+            <Form.Label>Cantidad de Ingredientes:</Form.Label>
+            <Form.Select
+              value={cantidadIngredientes}
+              onChange={handleCantidadIngredientesChange}
+            >
+              <option value="2">2</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
+              <option value="5">5</option>
+              <option value="6">6</option>
+            </Form.Select>
+          </Form.Group>
+
+          {Array.from({ length: cantidadIngredientes }).map((_, index) => (
+            <Form.Group
+              key={index}
+              className="mb-3"
+              controlId={`ingredientes[${index}]`}
+            >
+              <Form.Label>Ingrediente {index + 1}:</Form.Label>
+              <Form.Control
+                type="text"
+                placeholder={`Ingrediente ${index + 1}`}
+                {...register(`ingredientes.${index}`, {
+                  required: "Ingrese una descripción de Ingrediente",
+                  minLength: {
+                    value: 2,
+                    message: "Ingrese un nombre con mínimo 2 caracteres",
+                  },
+                  maxLength: {
+                    value: 20,
+                    message: "Ingrese un nombre con máximo 20 caracteres",
+                  },
+                })}
+              />
+            </Form.Group>
+          ))}
+        </article>
+      </section>
+
       {/* <Form.Group className="mb-3 grupoPasos" controlId="formPasos">
         <Form.Label>Pasos:</Form.Label>
         <Form.Control
