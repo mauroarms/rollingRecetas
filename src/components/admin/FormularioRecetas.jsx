@@ -245,6 +245,57 @@ const FormularioRecetas = ({ editar }) => {
 
         {/* pasos e ingredientes*/}
         <section className="d-flex gap-5 mt-4">
+                    {/* Ingredientes */}
+                    <article className="w-50">
+            <h1>Ingredientes</h1>
+            <Form.Group className="mb-3" controlId="formCantidadIngredientes">
+              <Form.Label>Cantidad de Ingredientes:</Form.Label>
+              <Form.Select
+                value={cantidadIngredientes}
+                onChange={handleCantidadIngredientesChange}
+              >
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+                <option value="8">8</option>
+                <option value="9">9</option>
+                <option value="10">10</option>
+              </Form.Select>
+            </Form.Group>
+
+            {Array.from({ length: cantidadIngredientes }).map((_, index) => (
+              <Form.Group
+                key={index}
+                className="mb-3"
+                controlId={`ingredientes[${index}]`}
+              >
+                <Form.Label>Ingrediente {index + 1}:</Form.Label>
+                <Form.Control
+                  type="text"
+                  placeholder={`Ingrediente ${index + 1}`}
+                  {...register(`ingredientes.${index}`, {
+                    required: "Ingrese el ingrediente",
+                    minLength: {
+                      value: 2,
+                      message: "Ingrese un ingrediente con mínimo 2 caracteres",
+                    },
+                    maxLength: {
+                      value: 200,
+                      message:
+                        "Ingrese un ingrediente con máximo 200 caracteres",
+                    },
+                  })}
+                />
+                <Form.Text className="text-danger">
+                  {errors.ingredientes?.[index]?.message}
+                </Form.Text>
+              </Form.Group>
+            ))}
+          </article>
+
           {/* Pasos */}
           <article className="w-50">
             <h1>Pasos</h1>
@@ -295,62 +346,12 @@ const FormularioRecetas = ({ editar }) => {
             ))}
           </article>
 
-          {/* Ingredientes */}
-          <article className="w-50">
-            <h1>Ingredientes</h1>
-            <Form.Group className="mb-3" controlId="formCantidadIngredientes">
-              <Form.Label>Cantidad de Ingredientes:</Form.Label>
-              <Form.Select
-                value={cantidadIngredientes}
-                onChange={handleCantidadIngredientesChange}
-              >
-                <option value="2">2</option>
-                <option value="3">3</option>
-                <option value="4">4</option>
-                <option value="5">5</option>
-                <option value="6">6</option>
-                <option value="7">7</option>
-                <option value="8">8</option>
-                <option value="9">9</option>
-                <option value="10">10</option>
-              </Form.Select>
-            </Form.Group>
 
-            {Array.from({ length: cantidadIngredientes }).map((_, index) => (
-              <Form.Group
-                key={index}
-                className="mb-3"
-                controlId={`ingredientes[${index}]`}
-              >
-                <Form.Label>Ingrediente {index + 1}:</Form.Label>
-                <Form.Control
-                  type="text"
-                  placeholder={`Ingrediente ${index + 1}`}
-                  {...register(`ingredientes.${index}`, {
-                    required: "Ingrese el ingrediente",
-                    minLength: {
-                      value: 2,
-                      message: "Ingrese un ingrediente con mínimo 2 caracteres",
-                    },
-                    maxLength: {
-                      value: 200,
-                      message:
-                        "Ingrese un ingrediente con máximo 200 caracteres",
-                    },
-                  })}
-                />
-                <Form.Text className="text-danger">
-                  {errors.ingredientes?.[index]?.message}
-                </Form.Text>
-              </Form.Group>
-            ))}
-          </article>
         </section>
 
         <Button
           type="submit"
-          className="btnPrincipal ms-auto mt-5"
-          variant="warning"
+          className="btnPrincipal mx-auto d-block mt-5"
         >
           Enviar
         </Button>
