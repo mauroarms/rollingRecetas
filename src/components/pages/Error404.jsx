@@ -5,9 +5,9 @@ const Error404 = () => {
   return (
     <Container className="d-flex align-items-center flex-column">
       <h1 className="display-6 mt-4">Página no encontrada... ERROR 404</h1>
-      <img src="https://i.makeagif.com/media/4-22-2022/XEx9cp.gif" alt="" />
+      <img src="https://i.makeagif.com/media/4-22-2022/XEx9cp.gif" alt="" width={500} className="img-fluid"/>
       <Button
-          className="btnPrincipal "
+          className="btnPrincipal mt-5"
           variant="warning"
           as={Link}
           to="/"
