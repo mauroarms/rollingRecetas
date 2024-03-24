@@ -42,7 +42,7 @@ const TablaAdministrador = () => {
       cancelButtonText: "Cancelar",
     }).then(async (result) => {
       if (result.isConfirmed) {
-        const respuesta = await borrarRecetaAPI(receta.id);
+        const respuesta = await borrarRecetaAPI(receta._id);
         if (respuesta.status === 200) {
           Swal.fire({
             title: `Se borró "${receta.nombre}" de la lista de Recetas`,
@@ -74,8 +74,8 @@ const TablaAdministrador = () => {
       </thead>
       <tbody>
         {recetas.map((receta) => (
-          <tr key={receta.id}>
-            <td>{receta.id}</td>
+          <tr key={receta._id}>
+            <td>{receta._id}</td>
             <td>{receta.nombre}</td>
             <td className="d-flex">
               <img
@@ -92,7 +92,7 @@ const TablaAdministrador = () => {
                 {/* Editar fila */}
                 <Link
                   className="btnPrincipal"
-                  to={`/admin/editar/${receta.id}`}
+                  to={`/admin/editar/${receta._id}`}
                 >
                   <FontAwesomeIcon icon={faPenToSquare} />
                 </Link>

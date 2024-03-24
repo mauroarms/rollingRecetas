@@ -30,8 +30,8 @@ const Recetas = () => {
     <section className="grillaProductos">
       {recetas.map((receta) => (
         <CardReceta 
-          key={receta.id}
-          id={receta.id}
+          key={receta._id}
+          id={receta._id}
           imagen={receta.imagen}
           nombre={receta.nombre}
           descripcionBreve={receta.descripcionBreve}
