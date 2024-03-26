@@ -29,6 +29,7 @@ footer {
   border-radius: 10px;
   /* display: block; */
   font-weight: 550;
+  color: #2e2e2e;
 }
 .btnPrincipal:hover {
   background-position: right center; 
